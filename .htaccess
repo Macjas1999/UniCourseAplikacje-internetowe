@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /UniCourseAplikacje-internetowe/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /UniCourseAplikacje-internetowe/index.php [L,QSA]
