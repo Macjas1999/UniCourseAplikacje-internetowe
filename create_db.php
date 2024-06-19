@@ -17,6 +17,7 @@ catch (Exception $e) {
     die("Database creation failed: " . $e->getMessage());
 }
 echo "Database created successfully<br>";
+
 $db->query("USE " . $config['db_name']);
 $db->query("DROP TABLE IF EXISTS employees");
 try {
@@ -37,9 +38,9 @@ try {
     die("Table creation failed: " . $e->getMessage());
 }
 echo "Table created successfully<br>";
-for ($i = 0; $i < 10; $i++) {
+$fake_people_amount = 10;
+for ($i = 0; $i < $fake_people_amount; $i++) {
     try {
-
         $stmt = $db->prepare("INSERT INTO employees(first_name, last_name, birth_date, address, telephone, job_position,date_started, salary, email, created_at, updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
         $firstName = $faker->firstName();
         $lastName = $faker->lastName();
@@ -50,9 +51,8 @@ for ($i = 0; $i < 10; $i++) {
         $date_started = $faker->dateTimeThisDecade()->format('Y-m-d H:i:s');
         $salary = $faker->numberBetween(3000, 10000);
         $email = $faker->email();
-        $created_at = $faker->dateTimeThisDecade()->format('Y-m-d H:i:s');
-        $updated_at = $faker->dateTimeThisDecade()->format('Y-m-d H:i:s');
-        $stmt->bind_param("sssssssisss", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_start, $salary, $email, $created_at, $updated_at);
+        $updated_at = $faker->dateTimeBetween($date_started, 'now')->format('Y-m-d H:i:s');
+        $stmt->bind_param("sssssssisss", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_started, $salary, $email, $date_started, $updated_at);
         $result = $stmt->execute();
     } catch (Exception $e) {
         die("Table insertion failed: " . $e->getMessage());
