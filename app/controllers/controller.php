@@ -4,4 +4,7 @@ class Controller {
     public function handleRequest() {
         
     }
-}
+    public function dupa() {
+        echo 'dupa';
+    }
+}   
