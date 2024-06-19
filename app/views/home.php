@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a>ad</a>
+<a href="<?php echo BASE_PATH . "/register"; ?>">Rejestracja</a>
+<a href="<?php echo BASE_PATH . "/login"; ?>">Login</a>
 </body>
 </html>
