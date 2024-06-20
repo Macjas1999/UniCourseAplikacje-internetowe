@@ -13,17 +13,10 @@ class authController {
         $data = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //print_r($_POST);
             
             $data['password'] = htmlspecialchars(trim($_POST['password']));
             $data['email'] = htmlspecialchars(trim($_POST['email']));
-            $data['city'] = htmlspecialchars(trim($_POST['city']));
-            $data['birthday'] = htmlspecialchars(trim($_POST['birthday']));
-
-            if (empty($data['username']) || !preg_match('/^[a-zA-Z0-9]{5,}$/', $data['username'])) {
-                $errors['username'] = 'Nazwa użytkownika jest nieprawidłowa';
-            }
-
+            
             if (empty($data['password']) || strlen($data['password']) < 8) {
                 $errors['password'] = 'Hasło nie spełnia wymagań';
             }
@@ -31,12 +24,11 @@ class authController {
             if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = 'Email jest nieprawidłowy';
             }
-
-            //print_r($errors);
+            
 
             if (empty($errors)) {
-                $hash = password_hash($data['password'], PASSWORD_ARGON2ID);
-                $this->userModel->create($data['username'], $data['city'], $hash, $data['email'], $data['birthday']);
+                //$hash = password_hash($data['password'], PASSWORD_ARGON2ID);
+                $this->userModel->register($data['email'], $data['password']);
             }
         }
 

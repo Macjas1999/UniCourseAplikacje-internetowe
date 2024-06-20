@@ -10,6 +10,16 @@
 </head>
 <body>
 <a href=<?php echo APP_NAME?>>home</a>
-<h1>reg</h1>
+<form action="" method="post">
+
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email"><br><br>
+    <label for="password">Hasło:</label>
+    <input type="password" name="password" id="password"><br><br>
+    
+    
+    <input type="submit" value="Zarejestruj się">
+</form>
 </body>
 </html>
