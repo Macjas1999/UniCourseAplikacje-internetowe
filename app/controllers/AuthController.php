@@ -1,6 +1,12 @@
 ﻿<?php
-
+require_once BASE_PATH . '/app/models/UserModel.php';
 class authController {
+    private $userModel;
+    public function __construct()
+    {
+        $this->userModel = new userModel(require BASE_PATH . '/app/config/database.php');
+    }
+
     public function register(): void
     {
         $errors = [];
@@ -8,8 +14,7 @@ class authController {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //print_r($_POST);
-
-            $data['username'] = htmlspecialchars(trim($_POST['username']));
+            
             $data['password'] = htmlspecialchars(trim($_POST['password']));
             $data['email'] = htmlspecialchars(trim($_POST['email']));
             $data['city'] = htmlspecialchars(trim($_POST['city']));
@@ -42,7 +47,6 @@ class authController {
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //print_r($_POST);
 
             $data['email'] = htmlspecialchars(trim($_POST['email']));
             $data['password'] = htmlspecialchars(trim($_POST['password']));

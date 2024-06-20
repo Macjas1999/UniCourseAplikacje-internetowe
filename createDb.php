@@ -54,7 +54,6 @@ for ($i = 0; $i < $fake_people_amount; $i++) {
         $salary = $faker->numberBetween(3000, 10000);
         $email = $faker->email();
         $password = $faker->password();
-        echo $password;
         $updated_at = $faker->dateTimeBetween($date_started, 'now')->format('Y-m-d H:i:s');
         $stmt->bind_param("sssssssissss", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_started, $salary, $email, $password, $date_started, $updated_at);
         $result = $stmt->execute();
@@ -63,3 +62,4 @@ for ($i = 0; $i < $fake_people_amount; $i++) {
     }
 }
 echo "Values inserted successfully<br>";
+$db->close();

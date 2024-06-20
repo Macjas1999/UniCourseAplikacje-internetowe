@@ -11,5 +11,14 @@
 <body>
 <a href=<?php echo APP_NAME?>>home</a>
 <h1>login</h1>
+<form action="" method="post">
+    <label for="email">Email użytkownika:</label>
+    <input type="email" name="email" id="email" autofocus value="a@a.a"><br><br>
+
+    <label for="password">Hasło:</label>
+    <input type="password" name="password" id="password" value="123123123"><br><br>
+
+    <input type="submit" value="Zaloguj się">
+</form>
 </body>
 </html>
