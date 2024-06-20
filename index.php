@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Rejestr pracowników</h1>
-    <h2>asd</h2>
-</body>
-</html>
-
 <?php
-const APP_NAME = '/UniCourseAplikacje-internetowe';
-define('BASE_PATH', realpath(dirname(__FILE__)));
-require_once BASE_PATH . '/app/controllers/controller.php';
+require_once __DIR__.'/app/config/config.php';
+require_once BASE_PATH . '/app/controllers/AuthController.php';
+require_once BASE_PATH . '/app/controllers/UserController.php';
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    $_SESSION['user'] = 'none';
+}
+echo $_SESSION['user'];
+if ($_SESSION['user'] == 'none') {
+    $authController = new AuthController();
+    $authController->handleRequest();
+}
+elseif ($_SESSION['user'] == 'user' || $_SESSION['user'] == 'admin') {
+    $userController = new UserController();
+    $userController->handleRequest($_SESSION['user']);
+}
 
 
-$controller = new Controller();
-$controller->handleRequest();

@@ -8,7 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-<a href="<?php echo BASE_PATH . "/register"; ?>">Rejestracja</a>
-<a href="<?php echo BASE_PATH . "/login"; ?>">Login</a>
+<?php
+require_once __DIR__ . '/../config/config.php';?>
+<a href="<?php echo APP_NAME . "/?page=register"; ?>">Rejestracja</a>
+<a href="<?php echo APP_NAME . "/?page=login"; ?>">Login</a>
+<h1>Homepage</h1>
 </body>
 </html>
