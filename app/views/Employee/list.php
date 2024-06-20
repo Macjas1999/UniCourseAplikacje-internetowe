@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿<?php require_once BASE_PATH . '/app/views/logged.php'?>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

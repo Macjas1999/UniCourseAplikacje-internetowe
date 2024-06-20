@@ -12,6 +12,5 @@
 require_once __DIR__ . '/../config/config.php';?>
 <a href="<?php echo APP_NAME . "/?page=register"; ?>">Rejestracja</a>
 <a href="<?php echo APP_NAME . "/?page=login"; ?>">Login</a>
-<h1>Homepage</h1>
 </body>
 </html>

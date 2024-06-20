@@ -1,4 +1,5 @@
-﻿<?php require_once  __DIR__.'/../../config\config.php' ?>
+﻿<?php require_once  __DIR__.'/../../config\config.php';
+    require_once BASE_PATH. '/app/views/home.php'?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-<a href=<?php echo APP_NAME?>>home</a>
 <form action="" method="post">
 
 

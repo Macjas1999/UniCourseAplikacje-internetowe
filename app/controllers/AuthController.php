@@ -7,7 +7,7 @@ class authController {
         $this->userModel = new userModel(require BASE_PATH . '/app/config/database.php');
     }
 
-    public function register(): void
+    private function register(): void
     {
         $errors = [];
         $data = [];
@@ -34,7 +34,7 @@ class authController {
 
         require_once BASE_PATH . '/app/views/Auth/register.php';
     }
-    public function login(): void
+    private function login(): void
     {
         $errors = [];
         $data = [];
