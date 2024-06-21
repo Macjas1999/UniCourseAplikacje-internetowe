@@ -1,7 +1,5 @@
-﻿<?php  require_once __DIR__ . '/../config/config.php'; ?>
-<body>
-    <a href="<?php
-    echo APP_NAME . '/?page=logout'
-    ?>">Logout</a>
+﻿<body>
     <H1>logged in</H1>
+    <a href="<?= APP_NAME . '/?page=employee_list'?>">Employees</a>
+    <a href="<?= APP_NAME . '/?page=logout'?>">Logout</a>
 </body>

@@ -1,5 +1,4 @@
-﻿<?php require_once  __DIR__.'/../../config\config.php';
-    require_once BASE_PATH. '/app/views/home.php'?>
+﻿<?php require_once BASE_PATH . '/app/views/home.php'?>
 <!doctype html>
 <html lang="en">
 <head>

@@ -10,20 +10,20 @@ class EmployeeModel {
         }
     }
     
-    public function getEmployees(): false|mysqli_result
+    public function getEmployees(): array
     {
-        require_once BASE_PATH . '/app/views/Employee/list.php';
         try {
             $stmt = $this->db->prepare("SELECT * FROM employees");
             $stmt->execute();
             $result = $stmt->get_result();
+            $employees = $result->fetch_all(MYSQLI_ASSOC);
             $stmt->close();
-            return $result;
+            return $employees;
         }
         catch (Exception $e) {
             echo $e->getMessage();
         }
-        return false;
+        return [];
     }
     public function getEmployee($id): false|mysqli_result
     {

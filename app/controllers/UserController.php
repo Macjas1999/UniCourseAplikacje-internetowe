@@ -31,21 +31,17 @@ class UserController
 
     private function handleUserRequest($page) {
         switch ($page) {
-            case 'logged':
-                require_once BASE_PATH . '/app/views/logged.php';
-                break;
             case 'idk':
                 //
                 break;
             default:
-                //
+                require_once BASE_PATH . '/app/views/logged.php';
                 break;
         }
     }
 
     private function handleAdminRequest($page) {
         switch ($page) {
-
             case 'employee_list':
                 $this->listEmployees();
                 break;
@@ -62,7 +58,8 @@ class UserController
     }
 
     private function listEmployees() {
-        $this->employeeModel->getEmployees();
+        $employees = $this->employeeModel->getEmployees();
+        require_once BASE_PATH . '/app/views/Employee/list.php';
     }
     private function addEmployee() {
         $this->employeeModel->addEmployee();
