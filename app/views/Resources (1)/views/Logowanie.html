@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="../CSS/Log&Register.css">
+</head>
+<body>
+    <div class="container">
+      <div class="modal-header">
+        <h2>Logowanie</h2>
+      </div>
+      <br>
+        <form id="Loging">
+            <input type="text" id="login" placeholder="login" required><br><br>
+            <input type="text" id="password" placeholder="password" required> <br><br>
+        <button class="button">zaloguj się</button> <br>
+        <button   id="myBtn">Rejestracja</button> 
+        </form>
+    </div>
+   
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Rejestracja</h2>
+    </div>
+    <div class="modal-body">
+      <input type="text" id="login" placeholder="login" required><br><br>
+            <input type="text" id="password" placeholder="password" required> <br><br>
+            <button class="button">Rejestracja</button> 
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // uzyskaj modal
+  var modal = document.getElementById("myModal");
+  
+  // Przycisk otwierający modala
+  var btn = document.getElementById("myBtn");
+  
+  // element zamykający okno
+  var span = document.getElementsByClassName("close")[0];
+  
+  // po kliknięciu otwórz modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // po kliknięciu zamknij modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // po kliknięciu poza obszarem zamknij modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+  
+
+    
+
+
+    
+</body>
+</html>
