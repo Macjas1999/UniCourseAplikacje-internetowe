@@ -44,7 +44,8 @@ class UserModel {
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
-        
+        $stmt->close();
+
         if ($user) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email'];
@@ -53,7 +54,6 @@ class UserModel {
         } else {
             echo "Registration failed.";
         }
-        
-        $stmt->close();
+
     }
 }

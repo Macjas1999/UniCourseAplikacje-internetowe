@@ -19,6 +19,7 @@
                         <li><?php echo htmlspecialchars($key . ': ' . $value); ?></li>
                     <?php endforeach; ?>
                 </ul>
+                <a href="?page=employee_edit&id=<?php echo $employee['id']; ?>">EDIT</a>
             </li>
         <?php endforeach; ?>
     </ul>

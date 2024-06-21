@@ -30,6 +30,9 @@ class authController {
                 //$hash = password_hash($data['password'], PASSWORD_ARGON2ID);
                 $this->userModel->register($data['email'], $data['password']);
             }
+            else {
+                print_r($errors);
+            }
         }
 
         require_once BASE_PATH . '/app/views/Auth/register.php';
@@ -69,6 +72,8 @@ class authController {
     }
     public function handleRequest(): void {
         $page = $_GET['page'] ?? 'home';
+
+        
         switch ($page) {
             case 'register':
                 $this->register();

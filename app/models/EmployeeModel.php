@@ -25,14 +25,15 @@ class EmployeeModel {
         }
         return [];
     }
-    public function getEmployee($id): false|mysqli_result
+    public function getEmployee($id): false|array|null
     {
         try {
             $stmt = $this->db->prepare("SELECT * FROM employees WHERE id = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
-            $result = $stmt->get_result();
+            $result = $stmt->get_result()->fetch_assoc();
             $stmt->close();
+            
             return $result;
         }
         catch (Exception $e) {
@@ -53,10 +54,34 @@ class EmployeeModel {
         }
         return false;
     }
-    public function updateEmployee($id): bool {
+    public function updateEmployee($data): bool {
         try {
-            $stmt = $this->db->prepare("UPDATE employees SET first_name = ? WHERE id = ?");
-            $stmt->bind_param("ss", $_POST['name'], $id);
+            $query = "UPDATE employees SET
+                     permissions = ?,
+                      first_name = ?, 
+                      last_name = ?, 
+                      birth_date = ?, 
+                      address = ?, 
+                      telephone = ?, 
+                      job_position = ?, 
+                      date_started = ?, 
+                      salary = ?, 
+                      email = ?, 
+                      updated_at = NOW() 
+                      WHERE id = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssssssssssssi",
+                              $data["permissions"],
+                              $data['first_name'], 
+                              $data['last_name'], 
+                              $data['birth_date'], 
+                              $data['address'], 
+                              $data['telephone'], 
+                              $data['job_position'], 
+                              $data['date_started'], 
+                              $data['salary'], 
+                              $data['email'],
+                              $data['id']);
             $stmt->execute();
             $stmt->close();
             return true;
