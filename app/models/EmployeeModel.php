@@ -70,8 +70,8 @@ class EmployeeModel {
                       updated_at = NOW() 
                       WHERE id = ?";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ssssssssssssi",
-                              $data["permissions"],
+            $stmt->bind_param("ssssssssssi",
+                              $data['permissions'],
                               $data['first_name'], 
                               $data['last_name'], 
                               $data['birth_date'], 

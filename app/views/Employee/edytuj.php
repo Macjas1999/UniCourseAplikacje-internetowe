@@ -10,7 +10,7 @@
 <?php require_once BASE_PATH . '/app/views/logged.php'?>
 <div class="container">
     <h1>Rejestr Pracowników</h1>
-    <form action="?page=employee_edit" method="post">
+    <form action="<?php echo APP_NAME . '/?page=employee_edit'?>" method="post">
     <h2>Lista Pracowników</h2>
     <table>
         <thead>
@@ -31,6 +31,7 @@
         <tbody id="employee-list">
             <tr>
                 <td><?php echo htmlspecialchars($employee['id']); ?></td>
+                <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($employee['id']); ?>">
                 <td><input type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($employee['first_name']); ?>"></td>
                 <td><input type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($employee['last_name']); ?>"></td>
                 <td><input type="text" id="birth_date" name="birth_date" value="<?php echo htmlspecialchars($employee['birth_date']); ?>"></td>

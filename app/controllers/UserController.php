@@ -11,6 +11,7 @@ class UserController
     public function handleRequest($user_type) : void {
         console_log('userController');
         $page = $_GET['page'] ?? 'home';
+        console_log($_GET);
         if ($page == 'logout'){
             $this->logout();
         }
@@ -44,7 +45,7 @@ class UserController
 
     private function handleAdminRequest($page): void
     {
-        console_log('userController admin request');
+        console_log($_SERVER['REQUEST_METHOD'] . ' ' . $_SERVER['REQUEST_URI'] . ' ' . $page);
         switch ($page) {
             case 'employee_list':
                 $this->listEmployees();
@@ -80,14 +81,16 @@ class UserController
             }
         }
         else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            console_log($_POST);
             foreach ($_POST as $key => $value) {
                 $data[$key] = htmlspecialchars($value);
             }
             $errors = [];
-            
-            if (empty($data) || $data['permissions'] != 'user' || $data['permissions'] != 'admin') {
+
+            if (empty($data['permissions']) || ($data['permissions'] != 'user' && $data['permissions'] != 'admin')) {
                 $errors['permissions'] = 'Permissions allowed are user and admin';
             }
+
             if (empty($data['first_name'])) {
                 $errors['first_name'] = 'First name is required';
             }
