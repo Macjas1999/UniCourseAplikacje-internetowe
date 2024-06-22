@@ -12,7 +12,7 @@ class UserModel {
 
     public function login($email, $password) {
         console_log('login model');
-        session_start();
+        @session_start();
         $stmt = $this->db->prepare("SELECT * FROM employees WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();

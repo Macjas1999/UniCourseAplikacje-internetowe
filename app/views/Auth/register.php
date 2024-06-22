@@ -11,14 +11,20 @@
 <body>
 <form action="" method="post">
 
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email"><br><br>
-    <label for="password">Hasło:</label>
-    <input type="password" name="password" id="password"><br><br>
-    
-    
-    <input type="submit" value="Zarejestruj się">
+    <link rel="stylesheet" href="/app/views/CSS/Log_Register.css">
+    </head>
+    <body>
+    <div class="container">
+        <div class="modal-header">
+            <h2>Rejestracja</h2>
+        </div>
+        <br>
+        <form id="register" method="post" action="">
+            <input type="text" id="email" name="email" placeholder="email" required><br><br>
+            <input type="password" id="password" name="password" placeholder="password" required> <br><br>
+            <button class="button" type="submit">Zarejestruj się</button> <br>
+        </form>
+    </div>
 </form>
 </body>
 </html>

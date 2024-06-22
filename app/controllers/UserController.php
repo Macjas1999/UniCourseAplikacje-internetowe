@@ -65,7 +65,7 @@ class UserController
     private function listEmployees(): void
     {
         $employees = $this->employeeModel->getEmployees();
-        require_once BASE_PATH . '/app/views/Employee/list.php';
+        require_once BASE_PATH . '/app/views/Employee/indexAdmin.php';
     }
 
     private function updateEmployee(): void

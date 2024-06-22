@@ -1,23 +1,24 @@
 ﻿<?php require_once BASE_PATH . '/app/views/home.php'?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="/app/views/CSS/Log_Register.css">
 </head>
 <body>
-<h1>login</h1>
-<form action="" method="post">
-    <label for="email">Email użytkownika:</label>
-    <input type="email" name="email" id="email" autofocus value="a@a.a"><br><br>
+<div class="container">
+    <div class="modal-header">
+        <h2>Logowanie</h2>
+    </div>
+    <br>
+    <form id="login" method="post" action="">
+        <input type="text" id="email" name="email" placeholder="email" required><br><br>
+        <input type="password" id="password" name="password" placeholder="password" required> <br><br>
+        <button class="button" type="submit">zaloguj się</button> <br>
+    </form>
+</div>
 
-    <label for="password">Hasło:</label>
-    <input type="password" name="password" id="password" value="123123123"><br><br>
 
-    <input type="submit" value="Zaloguj się">
-</form>
 </body>
 </html>

@@ -10,14 +10,15 @@ class authController {
 
     private function register(): void
     {
+        require_once BASE_PATH . '/app/views/Auth/register.php';
         $errors = [];
         $data = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+
             $data['password'] = htmlspecialchars(trim($_POST['password']));
             $data['email'] = htmlspecialchars(trim($_POST['email']));
-            
+
             if (empty($data['password']) || strlen($data['password']) < 8) {
                 $errors['password'] = 'Hasło nie spełnia wymagań';
             }
@@ -25,22 +26,22 @@ class authController {
             if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = 'Email jest nieprawidłowy';
             }
-            
+
 
             if (empty($errors)) {
                 //$hash = password_hash($data['password'], PASSWORD_ARGON2ID);
                 $this->userModel->register($data['email'], $data['password']);
             }
-            else {
-                print_r($errors);
+        else {
+                foreach ($errors as $error) {
+                    echo $error;
+                }
             }
         }
 
-        require_once BASE_PATH . '/app/views/Auth/register.php';
     }
     private function login(): void
     {
-        console_log('loginCtrl');
         require_once BASE_PATH . '/app/views/Auth/login.php';
         $errors = [];
         $data = [];
@@ -51,7 +52,7 @@ class authController {
 
 
             if (empty($data['email'])) {
-                $errors['username'] = 'Nazwa użytkownika jest pusta';
+                $errors['email'] = 'Email użytkownika jest pusty';
             }
 
             if (empty($data['password'])) {
@@ -75,6 +76,7 @@ class authController {
     }
     public function handleRequest(): void {
         $page = $_GET['page'] ?? 'home';
+        console_log('handleRequest()');
         
         
         switch ($page) {
