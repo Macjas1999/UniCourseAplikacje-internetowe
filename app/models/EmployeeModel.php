@@ -92,4 +92,42 @@ class EmployeeModel {
         }
         return false;
     }
+
+    public function addEmployee($data): bool {
+        try {
+            $query = "INSERT INTO employees (
+                      permissions,
+                      first_name, 
+                      last_name, 
+                      birth_date, 
+                      address, 
+                      telephone, 
+                      job_position, 
+                      date_started, 
+                      salary, 
+                      email, 
+                      created_at, 
+                      updated_at
+                      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssssssssss",
+                              $data['permissions'],
+                              $data['first_name'], 
+                              $data['last_name'], 
+                              $data['birth_date'], 
+                              $data['address'], 
+                              $data['telephone'], 
+                              $data['job_position'], 
+                              $data['date_started'], 
+                              $data['salary'], 
+                              $data['email']);
+            $stmt->execute();
+            $stmt->close();
+            return true;
+        } 
+        catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return false;
+    }
 }

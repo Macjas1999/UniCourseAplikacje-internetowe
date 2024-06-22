@@ -51,7 +51,7 @@ class UserController
                 $this->listEmployees();
                 break;
             case 'employee_add':
-                require_once BASE_PATH . '/app/views/Employee/add.php';
+                $this->addEmployee();
                 break;
             case 'employee_edit':
                 $this->updateEmployee();
@@ -134,8 +134,57 @@ class UserController
         }
     }
 
-    private function addEmployee() {
-        $this->employeeModel->addEmployee();
+    private function addEmployee(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            console_log($_POST);
+            foreach ($_POST as $key => $value) {
+                $data[$key] = htmlspecialchars($value);
+            }
+            $errors = [];
+
+            if (empty($data['permissions']) || ($data['permissions'] != 'user' && $data['permissions'] != 'admin')) {
+                $errors['permissions'] = 'Permissions allowed are user and admin';
+            }
+
+            if (empty($data['first_name'])) {
+                $errors['first_name'] = 'First name is required';
+            }
+            if (empty($data['last_name'])) {
+                $errors['last_name'] = 'Last name is required';
+            }
+            if (empty($data['birth_date'])) {
+                $errors['birth_date'] = 'Birth date is required';
+            }
+            if (empty($data['address'])) {
+                $errors['address'] = 'Address is required';
+            }
+            if (empty($data['telephone'])) {
+                $errors['telephone'] = 'Telephone is required';
+            }
+            if (empty($data['job_position'])) {
+                $errors['job_position'] = 'Job position is required';
+            }
+            if (empty($data['date_started'])) {
+                $errors['date_started'] = 'Date started is required';
+            }
+            if (empty($data['salary'])) {
+                $errors['salary'] = 'Salary is required';
+            }
+            if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = 'Valid email is required';
+            }
+
+            if (empty($errors)) {
+                $this->employeeModel->addEmployee($data);
+            }
+            else {
+                print_r($errors);
+            }
+            header('Location: index.php?page=employee_list');
+        } else {
+            require_once BASE_PATH . '/app/views/Employee/add.php';
+        }
     }
 
     private function removeEmployee() {
