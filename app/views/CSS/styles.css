@@ -88,17 +88,17 @@ input {
 
 button {
     text-align: center;
-  padding: 20px;
-  border: none;
-  font-size: 14px;
-  margin: 5px;
+    padding: 20px;
+    border: none;
+    font-size: 14px;
+    margin: 5px;
   
-  color: #FFFFFF;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.5s;
-  background-color: white;
+    color: #FFFFFF;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.5s;
+    background-color: white;
 }
 
 button:hover {
