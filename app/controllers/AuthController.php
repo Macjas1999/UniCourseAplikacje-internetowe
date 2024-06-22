@@ -86,11 +86,8 @@ class authController {
             case 'register':
                 $this->register();
                 break;
-            case 'login':
-                $this->login();
-                break;
             default:
-                require_once BASE_PATH . '/app/views/home.php';
+                $this->login();
                 break;
         }
     }

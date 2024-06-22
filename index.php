@@ -4,6 +4,7 @@ require_once BASE_PATH . '/app/controllers/AuthController.php';
 require_once BASE_PATH . '/app/controllers/UserController.php';
 require_once BASE_PATH . '/helper/console_log.php';
 session_start();
+print_r($_SESSION);
 if (!isset($_SESSION['permissions'])) {
     $_SESSION['permissions'] = 'none';
 }

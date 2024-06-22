@@ -32,7 +32,7 @@ try {
                                                             date_started timestamp NOT NULL,
                                                             salary integer NOT NULL,
                                                             email varchar(30) NOT NULL,
-                                                            password varchar(30) NOT NULL,
+                                                            password varchar(255) NOT NULL,
                                                             hours integer NOT NULL DEFAULT 1,
                                                             created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                                             updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -54,7 +54,7 @@ for ($i = 0; $i < $fake_people_amount; $i++) {
         $date_started = $faker->dateTimeThisDecade()->format('Y-m-d H:i:s');
         $salary = $faker->numberBetween(3000, 10000);
         $email = $faker->email();
-        $password = $faker->password();
+        $password = password_hash($faker->password(), PASSWORD_ARGON2ID);
         $hours = $faker->numberBetween(0, 500);
         $updated_at = $faker->dateTimeBetween($date_started, 'now')->format('Y-m-d H:i:s');
         $stmt->bind_param("sssssssissssi", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_started, $salary, $email, $password, $date_started, $updated_at, $hours);
@@ -74,7 +74,7 @@ try {
     $date_started = $faker->dateTimeThisDecade()->format('Y-m-d H:i:s');
     $salary = $faker->numberBetween(3000, 10000);
     $email = 'admin';
-    $password = 'admin';
+    $password = password_hash('admin', PASSWORD_ARGON2ID);
     $updated_at = $faker->dateTimeBetween($date_started, 'now')->format('Y-m-d H:i:s');
     $permissions = 'admin';
     $stmt->bind_param("sssssssisssss", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_started, $salary, $email, $password, $date_started, $updated_at, $permissions);

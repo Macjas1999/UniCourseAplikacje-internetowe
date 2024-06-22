@@ -1,5 +1,4 @@
-﻿<?php require_once BASE_PATH . '/app/views/home.php'?>
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +22,7 @@
             <input type="text" id="email" name="email" placeholder="email" required><br><br>
             <input type="password" id="password" name="password" placeholder="password" required><br><br>
             <button class="button" type="submit">Zarejestruj się</button> <br>
-
+            <a href="<?php echo APP_NAME . "/?page=login"; ?>">Login</a>
         </form>
     </div>
 </form>
