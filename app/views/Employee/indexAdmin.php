@@ -7,15 +7,7 @@
     <link rel="stylesheet" href="app/views/CSS/styles.css">
 </head>
 <body>
-<nav class="navbar">
-    <div class="logo">Rejestr Pracowników</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Lista Pracowników</a></li>
-        <li><a href="Dodaj.html">Dodaj pracownika</a></li>
-        <li><a href="Usuń.html">Usuń Pracownika</a></li>
-        <li><a href="Edytuj.html">Edytuj Pracownika</a></li>
-    </ul>
-</nav>
+<?php require_once BASE_PATH . '/app/views/logged.php'?>
 <div class="container">
     <h1>Rejestr Pracowników</h1>
 
@@ -34,6 +26,7 @@
                 <th>Wypłata</th>
                 <th>Adres E-mail</th>
                 <th>Edycja</th>
+                <th>Uprawnienia</th>
             </tr>
         </thead>
         <tbody id="employee-list">
@@ -47,8 +40,9 @@
                     <td><?php echo htmlspecialchars($employee['telephone']); ?></td>
                     <td><?php echo htmlspecialchars($employee['job_position']); ?></td>
                     <td><?php echo htmlspecialchars($employee['date_started']); ?></td>
-                    <td><?php echo htmlspecialchars($employee['salary']); ?></td>
+                    <td><?php echo htmlspecialchars($employee['salary']) . 'zł'; ?></td>
                     <td><?php echo htmlspecialchars($employee['email']); ?></td>
+                    <td><?php echo htmlspecialchars($employee['permissions']);?></td>
                     <td><button><a href="?page=employee_edit&id=<?php echo $employee['id']; ?>">Edytuj</button></td>
                 </tr>
             <?php endforeach; ?>

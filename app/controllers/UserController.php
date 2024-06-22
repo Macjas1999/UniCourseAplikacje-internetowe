@@ -74,7 +74,7 @@ class UserController
             $id = $_GET['id'] ?? null;
             if ($id) {
                 $employee = $this->employeeModel->getEmployee($id);
-                require_once BASE_PATH . '/app/views/Employee/edit.php';
+                require_once BASE_PATH . '/app/views/Employee/edytuj.php';
             } else {
                 require_once BASE_PATH . '/app/views/logged.php';
             }
@@ -122,6 +122,7 @@ class UserController
             else {
                 print_r($errors);
             }
+            console_log('update post');
             header('Location: index.php?page=employee_list');
         }
     }
