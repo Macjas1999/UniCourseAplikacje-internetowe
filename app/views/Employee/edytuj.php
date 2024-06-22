@@ -18,11 +18,11 @@
             <th>ID</th>
             <th>Imię</th>
             <th>Nazwisko</th>
-            <th>Data Urodzenia</th>
-            <th>Adres Zamieszkania</th>
+            <th>Data urodzenia</th>
+            <th>Adres zamieszkania</th>
             <th>Numer telefonu</th>
             <th>Stanowisko</th>
-            <th>Data Rozpoczęcia Pracy</th>
+            <th>Data rozpoczęcia pracy</th>
             <th>Wypłata</th>
             <th>Adres E-mail</th>
             <th>Uprawnienia</th>
