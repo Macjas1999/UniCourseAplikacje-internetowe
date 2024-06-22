@@ -30,7 +30,7 @@ class authController {
 
             if (empty($errors)) {
                 $hash = password_hash($data['password'], PASSWORD_ARGON2ID);
-                $this->userModel->register($data['email'], $data['password']);
+                $this->userModel->register($data['email'], $hash);
             }
         else {
                 foreach ($errors as $error) {

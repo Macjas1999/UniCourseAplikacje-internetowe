@@ -43,7 +43,6 @@ class EmployeeModel {
     }
     public function removeEmployee($id): bool
     {
-        console_log('Removing employee with id ' . $id);
         try {
             $stmt = $this->db->prepare("DELETE FROM employees WHERE id = ?");
             $stmt->bind_param("i", $id);

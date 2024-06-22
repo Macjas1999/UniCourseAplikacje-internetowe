@@ -27,7 +27,6 @@
             <th>Wypłata</th>
             <th>Adres E-mail</th>
             <th>Uprawnienia</th>
-            <th>Usuń pracownika</th>
         </tr>
         </thead>
         <tbody id="employee-list">
@@ -43,7 +42,6 @@
                 <td><input type="text" id="salary" name="salary" ></td>
                 <td><input type="text" id="email" name="email" ></td>
                 <td><input type="text" id="permissions" name="permissions" ></td>
-                <td><button><a href="?page=employee_add&id=<?php echo $employee['id']; ?>">Dodaj</button></td>
             </tr>
         </tbody>
     </table>
