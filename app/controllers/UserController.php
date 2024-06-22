@@ -141,7 +141,7 @@ class UserController
     private function removeEmployee() {
         
         $id = $_GET['id'] ?? null;
-        if ($id) {
+        if ($id && $id != $_SESSION['id']) {
             $this->employeeModel->removeEmployee($id);
         }
         header('Location: index.php?page=employee_list');
