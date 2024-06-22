@@ -161,6 +161,7 @@ class UserController
     {
         $id = $_SESSION['user_id'] ?? null;
         if ($id) {
+            console_log($id);
             $employee = $this->employeeModel->getEmployee($id);
             require_once BASE_PATH . '/app/views/Employee/viewProfile.php';
         } else {

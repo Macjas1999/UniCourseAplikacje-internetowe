@@ -32,13 +32,26 @@ class UserModel {
     
     public function register($email, $password) {
         session_start();
+        
+        // Check if email already exists
+        $stmt = $this->db->prepare("SELECT id FROM employees WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+        $stmt->close();
+
+        if ($user) {
+            echo "Email already exists.";
+            return;
+        }
+
         $stmt = $this->db->prepare("INSERT INTO employees (email, password) VALUES (?, ?)");
         $stmt->bind_param("ss", $email, $password);
         $stmt->execute();
         
-        //get id of inserted data
+        // Get id of inserted data
         $user_id = $stmt->insert_id;
-        
         
         $stmt = $this->db->prepare("SELECT * FROM employees WHERE id = ?");
         $stmt->bind_param("i", $user_id);
@@ -55,6 +68,5 @@ class UserModel {
         } else {
             echo "Registration failed.";
         }
-
     }
 }
