@@ -61,5 +61,25 @@ for ($i = 0; $i < $fake_people_amount; $i++) {
         die("Table insertion failed: " . $e->getMessage());
     }
 }
+try {
+    $stmt = $db->prepare("INSERT INTO employees(first_name, last_name, birth_date, address, telephone, job_position,date_started, salary, email, password, created_at, updated_at, permissions) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $firstName = $faker->firstName();
+    $lastName = $faker->lastName();
+    $birthDate = $faker->date('Y-m-d', '2000-01-01');
+    $address = $faker->address();
+    $telephone = $faker->phoneNumber();
+    $jobPosition = $faker->jobTitle();
+    $date_started = $faker->dateTimeThisDecade()->format('Y-m-d H:i:s');
+    $salary = $faker->numberBetween(3000, 10000);
+    $email = 'admin';
+    $password = 'admin';
+    $updated_at = $faker->dateTimeBetween($date_started, 'now')->format('Y-m-d H:i:s');
+    $permissions = 'admin';
+    $stmt->bind_param("sssssssisssss", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_started, $salary, $email, $password, $date_started, $updated_at, $permissions);
+    $result = $stmt->execute();
+} catch (Exception $e) {
+    die("Table insertion failed: " . $e->getMessage());
+}
+
 echo "Values inserted successfully<br>";
 $db->close();
