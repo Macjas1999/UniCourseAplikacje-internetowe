@@ -33,6 +33,7 @@
                 <th>Data Rozpoczęcia Pracy</th>
                 <th>Wypłata</th>
                 <th>Adres E-mail</th>
+                <th>Edycja</th>
             </tr>
         </thead>
         <tbody id="employee-list">
@@ -48,6 +49,7 @@
                     <td><?php echo htmlspecialchars($employee['date_started']); ?></td>
                     <td><?php echo htmlspecialchars($employee['salary']); ?></td>
                     <td><?php echo htmlspecialchars($employee['email']); ?></td>
+                    <td><button><a href="?page=employee_edit&id=<?php echo $employee['id']; ?>">Edytuj</button></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
