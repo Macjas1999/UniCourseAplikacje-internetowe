@@ -15,7 +15,7 @@
     <form id="login" method="post" action="">
         <input type="text" id="email" name="email" placeholder="email" required><br><br>
         <input type="password" id="password" name="password" placeholder="password" required> <br><br>
-        <button class="button" type="submit">zaloguj się</button> <br>
+        <button class="button" type="submit">Zaloguj się</button> <br>
     </form>
 </div>
 
