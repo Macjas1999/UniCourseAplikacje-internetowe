@@ -25,8 +25,8 @@
                 <th>Data Rozpoczęcia Pracy</th>
                 <th>Wypłata</th>
                 <th>Adres E-mail</th>
-                <th>Edycja</th>
                 <th>Uprawnienia</th>
+                <th>Edycja</th>
             </tr>
         </thead>
         <tbody id="employee-list">
