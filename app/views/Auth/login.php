@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Logowanie</title>
-    <link rel="stylesheet" href="/app/views/CSS/Log_Register.css">
+    <link rel="stylesheet" href="app/views/CSS/Log_Register.css">
 </head>
 <body>
 <div class="container">

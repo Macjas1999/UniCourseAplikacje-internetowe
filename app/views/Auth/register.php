@@ -11,7 +11,7 @@
 <body>
 <form action="" method="post">
 
-    <link rel="stylesheet" href="/app/views/CSS/Log_Register.css">
+    <link rel="stylesheet" href="app/views/CSS/Log_Register.css">
     </head>
     <body>
     <div class="container">

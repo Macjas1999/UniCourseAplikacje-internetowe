@@ -65,7 +65,5 @@
         <tbody id="comment-list">
             <!-- Lista komentarzy -->
         </tbody>
-    </table>       
-</div>
 </body>
 </html>
