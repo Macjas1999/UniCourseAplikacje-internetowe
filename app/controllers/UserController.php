@@ -136,6 +136,9 @@ class UserController
 
     private function addEmployee(): void
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            require_once BASE_PATH . '/app/views/Employee/add.php';
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             console_log($_POST);
             foreach ($_POST as $key => $value) {
@@ -177,13 +180,13 @@ class UserController
 
             if (empty($errors)) {
                 $this->employeeModel->addEmployee($data);
+                require_once BASE_PATH . '/app/views/Employee/add.php';
             }
             else {
                 print_r($errors);
             }
-            header('Location: index.php?page=employee_list');
+//            header('Location: index.php?page=employee_list');
         } else {
-            require_once BASE_PATH . '/app/views/Employee/add.php';
         }
     }
 
