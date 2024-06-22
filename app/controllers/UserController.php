@@ -38,8 +38,9 @@ class UserController
     private function handleUserRequest($page): void
     {
         switch ($page) {
-            case 'idk':
-                // Handle user specific request
+            case 'view_profile':
+                console_log('view profile');
+                $this->viewProfile();
                 break;
             default:
                 require_once BASE_PATH . '/app/views/logged.php';
@@ -154,5 +155,16 @@ class UserController
         }
 
         return $errors;
+    }
+
+    private function viewProfile(): void
+    {
+        $id = $_SESSION['user_id'] ?? null;
+        if ($id) {
+            $employee = $this->employeeModel->getEmployee($id);
+            require_once BASE_PATH . '/app/views/Employee/viewProfile.php';
+        } else {
+            require_once BASE_PATH . '/app/views/logged.php';
+        }
     }
 }
