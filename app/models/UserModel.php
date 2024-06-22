@@ -31,7 +31,7 @@ class UserModel {
     }
     
     public function register($email, $password) {
-        session_start();
+        @session_start();
         
         // Check if email already exists
         $stmt = $this->db->prepare("SELECT id FROM employees WHERE email = ?");

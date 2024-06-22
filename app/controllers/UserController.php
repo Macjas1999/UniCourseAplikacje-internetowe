@@ -92,7 +92,9 @@ class UserController
             if (empty($errors)) {
                 $this->employeeModel->updateEmployee($data);
             } else {
-                print_r($errors);
+                foreach ($errors as $error) {
+                    echo $error.'<br>';
+                }
             }
 
             header('Location: index.php?page=employee_list');
