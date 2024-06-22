@@ -16,7 +16,7 @@
         <input type="text" id="email" name="email" placeholder="email" required><br><br>
         <input type="password" id="password" name="password" placeholder="password" required> <br><br>
         <button class="button" type="submit">Zaloguj się</button> <br>
-        
+        <a href="<?php echo APP_NAME . "/?page=register"; ?>">Rejestracja</a>
     </form>
 </div>
 
