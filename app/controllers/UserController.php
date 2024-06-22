@@ -9,6 +9,7 @@ class UserController
     }
 
     public function handleRequest($user_type) : void {
+        console_log('userController');
         $page = $_GET['page'] ?? 'home';
         if ($page == 'logout'){
             $this->logout();
@@ -43,6 +44,7 @@ class UserController
 
     private function handleAdminRequest($page): void
     {
+        console_log('userController admin request');
         switch ($page) {
             case 'employee_list':
                 $this->listEmployees();
@@ -54,6 +56,7 @@ class UserController
                 $this->updateEmployee();
                 break;
             default:
+                console_log('require logged.php');
                 require_once BASE_PATH . '/app/views/logged.php';
                 break;
         }

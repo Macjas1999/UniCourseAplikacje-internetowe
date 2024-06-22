@@ -4,6 +4,7 @@ class authController {
     private $userModel;
     public function __construct()
     {
+        console_log('ctrlConstr');
         $this->userModel = new userModel(require BASE_PATH . '/app/config/database.php');
     }
 
@@ -39,10 +40,12 @@ class authController {
     }
     private function login(): void
     {
+        console_log('loginCtrl');
+        require_once BASE_PATH . '/app/views/Auth/login.php';
         $errors = [];
         $data = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+            console_log('login post');
             $data['email'] = htmlspecialchars(trim($_POST['email']));
             $data['password'] = htmlspecialchars(trim($_POST['password']));
 
@@ -68,11 +71,11 @@ class authController {
             }
         }
 
-        require_once BASE_PATH . '/app/views/Auth/login.php';
+        
     }
     public function handleRequest(): void {
         $page = $_GET['page'] ?? 'home';
-
+        
         
         switch ($page) {
             case 'register':
