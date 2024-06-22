@@ -33,6 +33,7 @@ try {
                                                             salary integer NOT NULL,
                                                             email varchar(30) NOT NULL,
                                                             password varchar(30) NOT NULL,
+                                                            hours integer NOT NULL DEFAULT 1,
                                                             created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                                             updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
                                                             )");
@@ -43,7 +44,7 @@ echo "Table created successfully<br>";
 $fake_people_amount = 10;
 for ($i = 0; $i < $fake_people_amount; $i++) {
     try {
-        $stmt = $db->prepare("INSERT INTO employees(first_name, last_name, birth_date, address, telephone, job_position,date_started, salary, email, password, created_at, updated_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt = $db->prepare("INSERT INTO employees(first_name, last_name, birth_date, address, telephone, job_position,date_started, salary, email, password, created_at, updated_at, hours) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $firstName = $faker->firstName();
         $lastName = $faker->lastName();
         $birthDate = $faker->date('Y-m-d', '2000-01-01');
@@ -54,8 +55,9 @@ for ($i = 0; $i < $fake_people_amount; $i++) {
         $salary = $faker->numberBetween(3000, 10000);
         $email = $faker->email();
         $password = $faker->password();
+        $hours = $faker->numberBetween(0, 500);
         $updated_at = $faker->dateTimeBetween($date_started, 'now')->format('Y-m-d H:i:s');
-        $stmt->bind_param("sssssssissss", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_started, $salary, $email, $password, $date_started, $updated_at);
+        $stmt->bind_param("sssssssissssi", $firstName, $lastName, $birthDate, $address, $telephone, $jobPosition, $date_started, $salary, $email, $password, $date_started, $updated_at, $hours);
         $result = $stmt->execute();
     } catch (Exception $e) {
         die("Table insertion failed: " . $e->getMessage());

@@ -15,5 +15,3 @@ elseif ($_SESSION['permissions'] == 'user' || $_SESSION['permissions'] == 'admin
     $userController = new UserController();
     $userController->handleRequest($_SESSION['permissions']);
 }
-
-

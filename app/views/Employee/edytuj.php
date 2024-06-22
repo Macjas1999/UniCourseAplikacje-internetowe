@@ -26,6 +26,7 @@
             <th>Wypłata</th>
             <th>Adres E-mail</th>
             <th>Uprawnienia</th>
+            <th>Przepracowane Godziny</th>
             <th>Usuń pracownika</th>
         </tr>
         </thead>
@@ -41,8 +42,9 @@
                 <td><input type="text" id="job_position" name="job_position" value="<?php echo htmlspecialchars($employee['job_position']); ?>"></td>
                 <td><input type="text" id="date_started" name="date_started" value="<?php echo htmlspecialchars($employee['date_started']); ?>"></td>
                 <td><input type="text" id="salary" name="salary" value="<?php echo htmlspecialchars($employee['salary']) . 'zł'; ?>"></td>
-                <td><input type="text" id="email" name="email" value="<?php echo htmlspecialchars($employee['email']); ?>"></td>
+                <td><input type="text" id="email" name="email" value="<?php echo htmlspecialchars($employee['email']); ?>">
                 <td><input type="text" id="permissions" name="permissions" value="<?php echo htmlspecialchars($employee['permissions']); ?>"></td>
+                <td><input type="text" id="hours" name="hours" value="<?php echo htmlspecialchars($employee['hours']); ?>"></td>
                 <td><button><a href="?page=employee_remove&id=<?php echo $employee['id']; ?>">Usuń</button></td>
             </tr>
         </tbody>

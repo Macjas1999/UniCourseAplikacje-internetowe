@@ -26,6 +26,7 @@
                 <th>Wypłata</th>
                 <th>Adres E-mail</th>
                 <th>Uprawnienia</th>
+                <th>Przepracowane godziny</th>
                 <th>Edycja</th>
             </tr>
         </thead>
@@ -43,6 +44,7 @@
                     <td><?php echo htmlspecialchars($employee['salary']) . 'zł'; ?></td>
                     <td><?php echo htmlspecialchars($employee['email']); ?></td>
                     <td><?php echo htmlspecialchars($employee['permissions']);?></td>
+                    <td><?php echo htmlspecialchars($employee['hours']);?></td>
                     <td><button><a href="?page=employee_edit&id=<?php echo $employee['id']; ?>">Edytuj</button></td>
                 </tr>
             <?php endforeach; ?>
