@@ -43,6 +43,7 @@ class EmployeeModel {
     }
     public function removeEmployee($id): bool
     {
+        console_log('Removing employee with id ' . $id);
         try {
             $stmt = $this->db->prepare("DELETE FROM employees WHERE id = ?");
             $stmt->bind_param("i", $id);
@@ -70,8 +71,8 @@ class EmployeeModel {
                       updated_at = NOW() 
                       WHERE id = ?";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ssssssssssssi",
-                              $data["permissions"],
+            $stmt->bind_param("ssssssssssi",
+                              $data['permissions'],
                               $data['first_name'], 
                               $data['last_name'], 
                               $data['birth_date'], 

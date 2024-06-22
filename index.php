@@ -15,7 +15,6 @@ if ($_SESSION['permissions'] == 'none') {
     $authController->handleRequest();
 }
 elseif ($_SESSION['permissions'] == 'user' || $_SESSION['permissions'] == 'admin') {
-    console_log('index admin');
     $userController = new UserController();
     $userController->handleRequest($_SESSION['permissions']);
 }
