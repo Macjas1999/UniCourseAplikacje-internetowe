@@ -17,9 +17,11 @@ class UserController
         if ($page == 'logout') {
             $this->logout();
         }
-
+        if ($page == 'view_profile') {
+            $this->viewProfile();
+        }
         if ($user_type == 'user') {
-            $this->handleUserRequest($page);
+            $this->handleUserRequest();
         } elseif ($user_type == 'admin') {
             $this->handleAdminRequest($page);
         }
@@ -35,17 +37,9 @@ class UserController
         exit();
     }
 
-    private function handleUserRequest($page): void
+    private function handleUserRequest(): void
     {
-        switch ($page) {
-            case 'view_profile':
-                console_log('view profile');
-                $this->viewProfile();
-                break;
-            default:
-                require_once BASE_PATH . '/app/views/logged.php';
-                break;
-        }
+        require_once BASE_PATH . '/app/views/logged.php';
     }
 
     private function handleAdminRequest($page): void

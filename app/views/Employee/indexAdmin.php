@@ -50,22 +50,5 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-
-    <h2>Godziny Pracy</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID Pracownika</th>
-                <th>Data</th>
-                <th>Ilość Godzin</th>
-                <th>Komentarz</th>
-            </tr>
-        </thead>
-        <tbody id="worklog-list">
-            <!-- Lista godzin pracy -->
-        </tbody>
-        <tbody id="comment-list">
-            <!-- Lista komentarzy -->
-        </tbody>
 </body>
 </html>
