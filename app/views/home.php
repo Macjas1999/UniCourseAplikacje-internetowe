@@ -9,8 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-
-
+<a href="<?php echo APP_NAME . "/?page=login"; ?>">Login</a>
+<a href="<?php echo APP_NAME . "/?page=register"; ?>">Rejestracja</a>
 
 
 </body>
