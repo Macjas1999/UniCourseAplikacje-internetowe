@@ -14,6 +14,7 @@
                 <li><a href="<?= APP_NAME . '/?page=employee_list'?>">Lista Pracowników</a></li>
                 <li><a href="<?= APP_NAME . '/?page=employee_add'?>">Dodaj pracownika</a></li>
             <?php endif; ?>
+                <li><a href="<?= APP_NAME . '/?page=view_profile'?>">Twój profil</a></li>
             <li><a href="<?= APP_NAME . '/?page=logout'?>">Wyloguj</a></li>
         </ul>
     </nav>
