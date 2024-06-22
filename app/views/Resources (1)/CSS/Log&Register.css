@@ -50,7 +50,6 @@
   width: 100%;
   left: 0;
 }
-
 .modal-content {
   width: 100%;
   animation-duration: 0.4s;
@@ -60,17 +59,11 @@
   animation-name: slideIn;
   -webkit-animation-name: slideIn;
 }
-
 .modal-header {
   color: white;
   background-color: #5cb85c;
   padding: 2px 16px;
 }
-
-.modal-body {
-  padding: 2px 16px;
-}
-
 .modal-footer {
   color: white;
   padding: 2px 16px;
