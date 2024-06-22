@@ -18,7 +18,7 @@ class UserModel {
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
-        if ($user && $password ===  $user['password']) {
+        if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['permissions'] = $user['permissions'];

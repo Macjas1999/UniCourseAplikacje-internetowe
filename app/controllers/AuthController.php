@@ -62,11 +62,11 @@ class authController {
 
 
             if (empty($errors)) {
-                $hash = password_hash($data['password'], PASSWORD_ARGON2ID);
+                //$hash = password_hash($data['password'], PASSWORD_ARGON2ID);
                 // $this->userModel->create($data['username'], $data['city'], $hash, $data['email'], $data['birthday']);
                 $email = $_POST['email'];
                 $password = $_POST['password'];
-                $this->userModel->login($email, $hash);
+                $this->userModel->login($email, $password);
             } else{
                 foreach ($errors as $error) {
                     //TODO: Wyświetl jako HTML
