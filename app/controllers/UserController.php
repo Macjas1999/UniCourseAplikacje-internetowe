@@ -56,6 +56,10 @@ class UserController
             case 'employee_edit':
                 $this->updateEmployee();
                 break;
+            case 'employee_remove':
+//                console_log($_SERVER['REQUEST_METHOD'] . ' ' . $_SERVER['REQUEST_URI'] . ' ' . $page);
+                $this->removeEmployee();
+                break;
             default:
                 console_log('require logged.php');
                 require_once BASE_PATH . '/app/views/logged.php';
@@ -134,7 +138,12 @@ class UserController
         $this->employeeModel->addEmployee();
     }
 
-    private function removeEmployee($id) {
-        $this->employeeModel->removeEmployee($id);
+    private function removeEmployee() {
+        
+        $id = $_GET['id'] ?? null;
+        if ($id) {
+            $this->employeeModel->removeEmployee($id);
+        }
+        header('Location: index.php?page=employee_list');
     }
 }

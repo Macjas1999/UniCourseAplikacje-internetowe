@@ -26,6 +26,7 @@
             <th>Wypłata</th>
             <th>Adres E-mail</th>
             <th>Uprawnienia</th>
+            <th>Usuń pracownika</th>
         </tr>
         </thead>
         <tbody id="employee-list">
@@ -42,6 +43,7 @@
                 <td><input type="text" id="salary" name="salary" value="<?php echo htmlspecialchars($employee['salary']) . 'zł'; ?>"></td>
                 <td><input type="text" id="email" name="email" value="<?php echo htmlspecialchars($employee['email']); ?>"></td>
                 <td><input type="text" id="permissions" name="permissions" value="<?php echo htmlspecialchars($employee['permissions']); ?>"></td>
+                <td><button><a href="?page=employee_remove&id=<?php echo $employee['id']; ?>">Usuń</button></td>
             </tr>
         </tbody>
     </table>
