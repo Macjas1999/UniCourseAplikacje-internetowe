@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,14 +33,14 @@
                 <td><?php echo htmlspecialchars($employee['id']); ?></td>
                 <td><input type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($employee['first_name']); ?>"></td>
                 <td><input type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($employee['last_name']); ?>"></td>
-                <td><?php echo htmlspecialchars($employee['birth_date']); ?></td>
-                <td><?php echo htmlspecialchars($employee['address']); ?></td>
-                <td><?php echo htmlspecialchars($employee['telephone']); ?></td>
-                <td><?php echo htmlspecialchars($employee['job_position']); ?></td>
-                <td><?php echo htmlspecialchars($employee['date_started']); ?></td>
-                <td><?php echo htmlspecialchars($employee['salary']) . 'zł'; ?></td>
-                <td><?php echo htmlspecialchars($employee['email']); ?></td>
-                <td><?php echo htmlspecialchars($employee['permissions']); ?></td>
+                <td><input type="text" id="birth_date" name="birth_date" value="<?php echo htmlspecialchars($employee['birth_date']); ?>"></td>
+                <td><input type="text" id="address" name="address" value="<?php echo htmlspecialchars($employee['address']); ?>"></td>
+                <td><input type="text" id="telephone" name="telephone" value="<?php echo htmlspecialchars($employee['telephone']); ?>"></td>
+                <td><input type="text" id="job_position" name="job_position" value="<?php echo htmlspecialchars($employee['job_position']); ?>"></td>
+                <td><input type="text" id="date_started" name="date_started" value="<?php echo htmlspecialchars($employee['date_started']); ?>"></td>
+                <td><input type="text" id="salary" name="salary" value="<?php echo htmlspecialchars($employee['salary']) . 'zł'; ?>"></td>
+                <td><input type="text" id="email" name="email" value="<?php echo htmlspecialchars($employee['email']); ?>"></td>
+                <td><input type="text" id="permissions" name="permissions" value="<?php echo htmlspecialchars($employee['permissions']); ?>"></td>
             </tr>
         </tbody>
     </table>
